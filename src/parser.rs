@@ -226,12 +226,7 @@ pub(crate) rule table_row() -> Vec<String>
 
 pub(crate) rule table0() -> Vec<Vec<String>>
     = _ d:(table_row() ++ _) {
-        if d.is_empty() {
-            d
-        } else {
-            let len = d[0].len();
-            d.into_iter().map(|mut x| { x.truncate(len); x }).collect()
-        }
+        d
     }
 
 pub(crate) rule table() -> Table
